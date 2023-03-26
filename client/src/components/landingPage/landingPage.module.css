@@ -14,21 +14,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 500px;
-    height: 500px;
+    width: 200px;
+    height: 200px;
 }
 
 
 
 .boton {
-    background: linear-gradient(to bottom, #E5989B 5%, #FFCDB2 100%);
-    background-color: #E5989B;
-    border: 2px solid #d8797c;
+    background: linear-gradient(to bottom, #E5989B 5%, #fcd68d 100%);
+    background-color: #fcd68d;
+    border: 2px solid #5E412F;
     display: inline-block;
     cursor: pointer;
     color: #333333;
     font-family: Arial;
-    font-size: 30px;
+    font-size: 20px;
     font-weight: bold;
     padding: 10px 24px;
     text-decoration: none;

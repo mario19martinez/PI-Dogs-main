@@ -27,7 +27,7 @@ export const getAllDogs = () => {
 }
 export const postDog = (payload) => {
     return async function() {
-        let json = await axios.post('http://localhost:3001/', payload)
+        let json = await axios.post('http://localhost:3001/dogs', payload)
         console.log(json)
         return json;
     }
@@ -77,20 +77,28 @@ export const filterByWeight = (payload) => {
     }
 }
 export const filterCreatedDog = (payload) => {
-    console.log(payload)
     return {
         type: FILTER_CREATED_DOG,
-        payload
+        payload,
     }
 }
-export const getTemperaments = () => {
-    return async function(dispatch) {
-        let json = await axios('http://localhost:3001/temperaments')
-        const payload = await json.data
-        return dispatch({
-            type: GET_ALL_TEMPERAMENTS,
-            payload
-        })
+// export const getTemperaments = () => {
+//     return async function(dispatch) {
+//         let json = await axios('http://localhost:3001/temperaments')
+//         console.log(json)
+//         const payload = await json.data
+//         return dispatch({
+//             type: GET_ALL_TEMPERAMENTS,
+//             payload
+//         })
+//     }
+// }
+export function getTemperaments(){
+    return async function(dispatch){
+        const temps = await axios.get("http://localhost:3001/temperaments");
+        dispatch({type: "GET_ALL_TEMPERAMENTS",
+        payload: temps.data,
+    })
     }
 }
 export const clearDetail = () => {

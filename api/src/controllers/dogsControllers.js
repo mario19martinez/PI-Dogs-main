@@ -12,13 +12,13 @@ const BuscaApi = async () => {
       id: el.id,
       name: el.name,
       image: el.image.url,
-      temperament: el.temperament,
+      temperament: el.temperament ? el.temperament.split(",") : [],
       height: el.height.metric + "cm",
       weight: el.weight.metric + "kg",
       life_span: el.life_span,
     };
   });
-  console.log(apiInfo)
+  //console.log(apiInfo)
   return apiInfo;
 };
 
@@ -35,21 +35,22 @@ const buscarenDb = async () => {
         }
     });
     return buscarDb;
-
-    // let infoDb = await buscarDb?.map((el) => {
-    //     return {
-    //         id: el.id,
-    //         name: el.name,
-    //         image: el.image,
-    //         temperaments: el.temperament?.map((el) => el.temperament).toString(),
-    //         height: el.height.metric,
-    //         weigth: el.weight.metric,
-    //         life_span: el.life_span,
-    //         createdInDb: el.createdInDb,
-    //     }
-    // })
-    //return infoDb;
 };
+
+//     let infoDb = await buscarDb?.map((el) => {
+//         return {
+//             id: el.id,
+//             name: el.name,
+//             image: el.image,
+//             temperaments: el.temperament,
+//             height: el.height.metric,
+//             weigth: el.weight.metric,
+//             life_span: el.life_span,
+//             createdInDb: el.createdInDb,
+//         }
+//     })
+//     return infoDb;
+// };
 
 //todo url y db
 const allDogsControllers = async () => {
@@ -76,7 +77,7 @@ const dbDogId = async (id) => {
   if (dog === null) {
     throw Error("Perro no encontrado");
   }
-  console.log(dog);
+  //console.log(dog);
   return dog;
 };
 

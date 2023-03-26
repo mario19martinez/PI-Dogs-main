@@ -8,10 +8,10 @@ const tempsHandler = async () => {
     `https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`
   ); //me trae los temps en forma de arrelgo
 
-  temps.data.forEach((elem) => {
+  temps.data.forEach((el) => {
     //analizo cada elemento del arreglo de razas
-    if (elem.temperament) {
-      let temps = elem.temperament.split(", ");
+    if (el.temperament) {
+      let temps = el.temperament.split(", ");
 
       temps.forEach((e) => {
         Temperaments.findOrCreate({

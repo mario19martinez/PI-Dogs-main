@@ -14,9 +14,9 @@
     
 }
 .list > button {
-    box-shadow: inset 0px 0px 0px 0px #f7c5c0;
-    background: linear-gradient(to bottom, #fc8d83 5%, #e4685d 100%);
-    background-color: #fc8d83;
+    box-shadow: inset 0px 0px 0px 0px #9cbfac;
+    background: linear-gradient(to bottom, #0f0f0f 5%, #d1ded3 100%);
+    background-color: #29445d;
     border-radius: 6px;
     border: 1px solid #d83526;
     display: inline-block;
@@ -28,12 +28,12 @@
     font-style: italic;
     padding: 6px 10px;
     text-decoration: none;
-    text-shadow: 0px 1px 0px #b23e35;
+    text-shadow: 0px 1px 0px #9cbfac;
 }
 
 .list > button:hover {
-    background: linear-gradient(to bottom, #e4685d 5%, #fc8d83 100%);
-    background-color: #e4685d;
+    background: linear-gradient(to bottom, #9cbfac 5%, #9cbfac 100%);
+    background-color: #9cbfac;
 }
 
 .list > button:active {

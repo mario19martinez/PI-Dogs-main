@@ -78,8 +78,29 @@ const rootReducer = (state = initialState, action) => {
         case GET_ALL_TEMPERAMENTS:
             return {
                 ...state,
-                allTemperaments: action.payload
+                temperaments: action.payload
             }
+        //     case FILTER_BY_TEMPERAMENT:
+        //   if(action.payload !== undefined){
+        //     const filtered = state.allDogs.filter((e) => e.temperament?.includes(action.payload.charAt(0).toUpperCase() + action.payload.slice(1)))
+        //     let arr = []
+        //       state.created.forEach(e => {
+        //       e.temperaments.forEach(el => {
+        //         if(el.name.includes(action.payload.charAt(0).toUpperCase() + action.payload.slice(1))){
+        //           arr.push(e)}
+        //         });
+        //       })
+        //     const all = filtered.concat(arr)
+        //     return{
+        //       ...state,
+        //       dogs: all
+        //     }
+        //   }else{
+        //     return{
+        //       ...state,
+        //       breeds: state.allBreeds
+        //     }
+        //   }
         case FILTER_BY_TEMPERAMENT:
             const allDogs2 = state.allDogs
             const filteredTemperament = action.payload === 'all' ? allDogs : allDogs2.filter(e => {

@@ -1,27 +1,27 @@
-const {Dog, Temperaments} = require('../db')
-//const { Op } = require("sequelize");
-require('dotenv').config();
-const { tempsHandler } = require("./tempshandler")
-const { allDogsControllers } = require('../controllers/dogsControllers')
+// const {Dog, Temperaments} = require('../db')
+// //const { Op } = require("sequelize");
+// require('dotenv').config();
+// const { tempsHandler } = require("./tempshandler")
+// const { allDogsControllers } = require('../controllers/dogsControllers')
 
-const createDogHandler = async (objDog) => {
-  const { name, image, height, weight, life_span, temperament } = objDog;
-  const dog = {
-    name,
-    image,
-    height,
-    weight,
-    life_span,
-    temperament,
-  };
-  const dogInfo = await Temperaments.findAll({
-    where: { name: temperament },
-  });
-  const createDog = await Dog.create(dog);
+// const createDogHandler = async (objDog) => {
+//   const { name, image, height, weight, life_span, temperament } = objDog;
+//   const dog = {
+//     name,
+//     image,
+//     height,
+//     weight,
+//     life_span,
+//     temperament,
+//   };
+//   const dogInfo = await Temperaments.findAll({
+//     where: { name: temperament },
+//   });
+//   const createDog = await Dog.create(dog);
 
-  createDog.addTemperaments(dogInfo);
-  return Dog.findAll();
-};
+//   createDog.addTemperaments(dogInfo);
+//   return Dog.findAll();
+// };
 
 
 // const createDogHandler = async (
@@ -73,6 +73,6 @@ const createDogHandler = async (objDog) => {
 //     return newDog;
 // };
 
-module.exports = {
-    createDogHandler
-}
+//module.exports = {
+//     createDogHandler
+// }

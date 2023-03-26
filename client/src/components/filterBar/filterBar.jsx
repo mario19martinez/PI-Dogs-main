@@ -64,7 +64,7 @@ const FilterBar = ({setCurrentPage, setOrder}) => {
             <div>
             <h3>Temperamentos</h3>
             <select className={styles.selectStyle} onChange={e => handleTempFilter(e)}>
-                <option key={ 1 + "e"} value="all">ProtoTemperament</option>
+                <option key={ 1 + "e"} value="all">Temperament</option>
                 {
                     temperamentName.map(e => {
                         return(

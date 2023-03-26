@@ -1,10 +1,10 @@
 .card{
-    background-color: #f5f1ed;
-    width: 800px;
+    background-color: #0F0F0F;
+    width: 500px;
     height: 300px;
     display: flex;
     justify-content: space-between;
-    border: 4px inset #1C6EA4;
+    border: 4px inset #F96F2E;
         border-radius: 9px 27px 18px 11px;
     }
     
@@ -22,41 +22,42 @@
         font-family: "Comic Sans MS", cursive, sans-serif;
         letter-spacing: 1.8px;
         word-spacing: 1.6px;
-        color: #4A3401;
+        color: #E9EAEF;
         /* text-decoration: none; */
         font-weight: normal;
         font-style: normal;
         font-variant: normal;
         text-transform: none;
-        background-color: #a99985;
+        background-color: #989898;
         border-radius: 0px 40px 40px 0px;
         flex-direction: column;
         justify-content: space-around;
-        width: 550px;
+        width: 300px;
     }
     
     .titleStyle{
-        background-color: #f5f1ed;
+        background-color: #F6F6F6;
+        border-radius: 20px;
         /* font-family: "Montserrat", sans-serif */
         text-decoration: none;
         justify-content: space-around;
             color: #252323;
             font-size: 0.9em;
             text-transform: uppercase;
-            font-weight: 500;
+            font-weight: 450;
         
         
     }
     
     .titleStyle > a {
         justify-content: space-around;
-            color: #252323;
+            color: #0F0F0F;
             text-decoration: none;
             font-size: 1.0em;
             text-transform: uppercase;
-            font-weight: 450;
+            font-weight: 440;
             /* display: inline-block; */
-            width: 80px;
+            width: 75px;
             -webkit-transition: all 0.2s ease-in-out;
             transition: all 0.2s ease-in-out;
     }

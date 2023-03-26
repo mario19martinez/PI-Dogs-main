@@ -28,16 +28,18 @@ const DogDetail = () => {
             </Link>
             {Object.keys(dog).length ?
             <div className={styles.general}>
-                <img src={dog.image ? dog.image : dog.image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWuj7_Yp_STbTtvooO1tCTmQBj1CkT7a62tZ21Pv3bW_5AgQzU7BZPeGcv2ijxj-IkO5w&usqp=CAU"} alt="woof" width="1000" height="1000" />
+                <img src={dog.image ? dog.image : dog.image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWuj7_Yp_STbTtvooO1tCTmQBj1CkT7a62tZ21Pv3bW_5AgQzU7BZPeGcv2ijxj-IkO5w&usqp=CAU"} alt="woof" width="800" height="800" />
             <div className={styles.dogdetail}>
 
             <h1>Nombre de la raza: {dog.name}</h1>
-            <h2>¿Cuanto tiempo vive?</h2>
+            <h2>Años de vida: {dog.life_span}</h2>
             <h2>Peso Minimo: {dog.weight} / Peso Maximo: {dog.weight}</h2>
             <h2>Altura: {dog.height}</h2>
             <div>
             <h2>Temperamentos:</h2>
-            <h2>{!dog.createdInDb? dog.temperament : dog.Temperaments.map(d => d.name + " ")}</h2>
+            <h3>{!dog.createInDb
+                ? dog.temperament + ", "
+                : dog.temperaments.map((el) => el.name + ", ")}</h3>
             </div>
             </div>
             </div>

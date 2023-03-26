@@ -11,16 +11,53 @@ const router = Router();
 
 // POST DES DOG
 
-router.post('/dogs', async(req, res) => {
-  try{
-    const objDog = req.body;
-    if(objDog);
-    const newDog = createDogHandler(objDog);
-    res.status(201).send(newDog);
-  }catch(error){
-    res.status(404).json({error: error.message})
+// router.post('/dogs', async(req, res) => {
+//   try{
+//     const objDog = req.body;
+//     if(objDog);
+//     console.log(objDog)
+//     const newDog = createDogHandler(objDog);
+//     res.status(201).send(newDog);
+//   }catch(error){
+//     res.status(404).json({error: error.message})
+//   }
+// });
+
+
+router.post('/dogs', async (req, res) => {
+  try {
+    // Get the data from the request body
+    const { name, image, height, weight, life_span, temperament } = req.body;
+
+    // Create the new dog breed in the database
+    const newDog = await Dog.create({
+      name,
+      image,
+      height,
+      weight,
+      life_span,
+    });
+
+    // Find the temperaments associated with the dog
+    const temperamentsFound = await Temperaments.findAll({
+      where: { name: temperament },
+    });
+
+    // Associate the temperaments with the new dog breed
+    await newDog.addTemperaments(temperamentsFound);
+
+    // Find the new dog breed by id
+    const createdDog = await Dog.findByPk(newDog.id, {
+      include: { model: Temperaments },
+    });
+
+    // Send the created dog breed as a response
+    res.status(201).json(createdDog);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
   }
-})
+});
 
 // router.post('/dogs', async(req,res) => {
 //   const {name, height, weight, image, life_span, temperament} = req.body;

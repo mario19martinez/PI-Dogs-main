@@ -44,15 +44,7 @@ router.get("/dogs", async (req, res) => {
 });
 
 
-// router.get("/temperaments", async(req, res) => {
-//     try{
-//         let dogTemps = await allTemperament();
-//         res.status(200).json(dogTemps)
-//     }
-//     catch(error){
-//         res.status(404).json({error: error.message})
-//     }
-// })
+
 
 router.get("/dogs/:id", async (req, res) => {
     let {id} = req.params
@@ -70,21 +62,6 @@ router.get("/dogs/:id", async (req, res) => {
     }
 });
 
-// router.get("/:id", async(req, res) => {
-//     let { idRaza } = req.params;
-//     try{
-//         let query = await Dog.findByPk(idRaza, {
-//             include: [Temperaments]
-//         });
-//         if(query) {
-//             res.json(query);
-//         } else {
-//             res.status(404).json('Not Found');
-//         }
-//     }
-//     catch(error) {
-//         res.status(500).json({error: error.message});
-//     }
-// });
+
 
 module.exports = router;
