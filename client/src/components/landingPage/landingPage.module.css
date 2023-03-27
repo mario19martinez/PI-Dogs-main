@@ -1,5 +1,5 @@
 .back_image{
-    background-image: url('https://images3.alphacoders.com/216/thumb-1920-216167.jpg');    
+    background-image: url('https://c4.wallpaperflare.com/wallpaper/893/629/214/dogs-samoyed-dog-pet-hd-wallpaper-preview.jpg');    
     background-size: cover;
     height: 100vh;
     display: flex;
@@ -21,6 +21,17 @@
 
 
 .boton {
+    /* margin-top: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  outline: 2px solid #038c73;
+  padding: 10px 30px;
+  color: #0d0d0d;
+  position: relative;
+  overflow: hidden;
+  transition: color 1s;
+  border-radius: 10px; */
     background: linear-gradient(to bottom, #E5989B 5%, #fcd68d 100%);
     background-color: #fcd68d;
     border: 2px solid #5E412F;
@@ -44,4 +55,16 @@
 .boton:active {
     position: relative;
     top: 1px;
+}
+.anuncio{
+    color: #0f0f0f;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: absolute;
+    bottom: 0;
+  width: center;
+  height: 40px;
+}
+.texto{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    bottom: 0;
 }

@@ -33,7 +33,7 @@ const DogDetail = () => {
 
             <h1>Nombre de la raza: {dog.name}</h1>
             <h2>Años de vida: {dog.life_span}</h2>
-            <h2>Peso Minimo: {dog.weight} / Peso Maximo: {dog.weight}</h2>
+            <h2>Peso Minimo: {dog.weight}</h2>
             <h2>Altura: {dog.height}</h2>
             <div>
             <h2>Temperamentos:</h2>

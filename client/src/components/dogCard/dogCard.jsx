@@ -16,7 +16,8 @@ export default function Card({ id, name, image, temperament, weight, height}){
                     </Link>
                 </div>
                 <h2>{temperament}</h2>
-                <h2>Peso minimo/ peso maximo: {weight}</h2>
+                <h2>Peso: {weight}</h2>
+                <h2>Altura: {height}</h2>
             </div>
         </div>
     )

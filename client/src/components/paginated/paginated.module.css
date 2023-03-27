@@ -16,9 +16,9 @@
 .list > button {
     box-shadow: inset 0px 0px 0px 0px #9cbfac;
     background: linear-gradient(to bottom, #0f0f0f 5%, #d1ded3 100%);
-    background-color: #29445d;
-    border-radius: 6px;
-    border: 1px solid #d83526;
+    /* background-color: #29445d; */
+    border-radius: 10px;
+    /* border: 1px solid #d83526; */
     display: inline-block;
     cursor: pointer;
     color: #ffffff;
@@ -26,7 +26,7 @@
     font-size: 18px;
     font-weight: bold;
     font-style: italic;
-    padding: 6px 10px;
+    padding: 6px 6px;
     text-decoration: none;
     text-shadow: 0px 1px 0px #9cbfac;
 }

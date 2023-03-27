@@ -1,24 +1,11 @@
 require("dotenv").config();
 const { Router } = require("express");
-const axios = require("axios");
 const {allDogsControllers, dbDogId, getDog} = require("../controllers/dogsControllers")
-const {allTemperament} = require("../controllers/temperament");
-//const { tempsHandler } = require('../handlers/tempshandler')
-const { Dog, Temperaments } = require('../db');
-//const { Sequelize } = require("sequelize");
 const {tempsHandler} = require('../handlers/tempshandler')
-const { API_KEY } = process.env;
 
 const router = Router();
 
-router.get('/temperaments', async(req, res) => {
-    try{
-        const temp = await tempsHandler();
-        res.status(202).json(temp);
-    }catch(error){
-        res.status(404).json({error: error.message})
-    }
-})
+
 
 router.get("/dogs", async (req, res) => {
     const name = req.query.name; //guarda el 'name' requeridos por query
@@ -61,6 +48,16 @@ router.get("/dogs/:id", async (req, res) => {
         res.status(404).json({error: error.message})
     }
 });
+
+
+router.get('/temperaments', async(req, res) => {
+    try{
+        const temp = await tempsHandler();
+        res.status(202).json(temp);
+    }catch(error){
+        res.status(404).json({error: error.message})
+    }
+})
 
 
 

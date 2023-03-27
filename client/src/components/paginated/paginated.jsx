@@ -11,13 +11,13 @@ export default function Paginated({currentDogs, allDogs, paginated}) {
     return(
         <nav className={styles.back}>
         <ul>
-            {pages?.map((n) => {
-                return(
-                    <li key={n} className={styles.list}>
-                    <button key={n} onClick={() => paginated(n)}>{n}</button>
+            {pages?.map((number) =>
+                (
+                    <li key={number} className={styles.list}>
+                    <button key={number} onClick={() => paginated(number)}>{number}</button>
                     </li>
                 )
-            })}
+            )}
         </ul>
         </nav>
     )

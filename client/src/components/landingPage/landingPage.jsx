@@ -11,6 +11,11 @@ const landingPage = () => {
                 <button className={styles.boton}> WOOF WOOF </button>
             </Link>
             </div>
+            <div>
+                <h1 className={styles.texto}>Mi Landing Page</h1>
+                <p>Bienvenidos a mi pagina de Dogs, espero que sea de su agrado</p>
+                <p className={styles.anuncio}>Henry Bootcamp</p>
+            </div>
         </div>
     )
 }
