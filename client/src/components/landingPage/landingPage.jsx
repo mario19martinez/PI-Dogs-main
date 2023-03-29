@@ -8,13 +8,12 @@ const landingPage = () => {
         <div className={styles.back_image} >
             <div className={ styles.divStyle} >
             <Link to="/home">
-                <button className={styles.boton}> WOOF WOOF </button>
+                <button className={styles.boton}> let's go </button>
             </Link>
             </div>
-            <div>
-                <h1 className={styles.texto}>Mi Landing Page</h1>
-                <p>Bienvenidos a mi pagina de Dogs, espero que sea de su agrado</p>
-                <p className={styles.anuncio}>Henry Bootcamp</p>
+            <div className={styles.texto}>
+                <h1 >Mi Landing Page</h1>
+                <p className={styles.message}>Bienvenidos a mi pagina de Dogs, espero que sea de su agrado.</p>
             </div>
         </div>
     )

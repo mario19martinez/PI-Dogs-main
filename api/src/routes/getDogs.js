@@ -1,5 +1,6 @@
 require("dotenv").config();
 const { Router } = require("express");
+const {Dog} = require('../db')
 const {allDogsControllers, dbDogId, getDog} = require("../controllers/dogsControllers")
 const {tempsHandler} = require('../handlers/tempshandler')
 
@@ -58,6 +59,9 @@ router.get('/temperaments', async(req, res) => {
         res.status(404).json({error: error.message})
     }
 })
+
+
+  
 
 
 

@@ -1,8 +1,8 @@
 .general{
-    margin-top: 5%;
-    background-color: red;
+    margin-top: 1%;
+    padding: 0;
     display: flex;
-    background-color: #fcbc58;
+    background-color: #45767c;
     opacity: 90%;
     border: 4px inset #0F0F0F;
         border-radius: 9px 27px 18px 11px;
@@ -15,8 +15,8 @@
     align-items: center;
     margin-left: 1%;
     width: 80%;
-    color: #252323 ;
-        font-family: "Comic Sans MS", cursive, sans-serif;
+    color: white ;
+        font-family: monospace;
         font-size: 20px;
             letter-spacing: 1.8px;
             word-spacing: 1.6px;
@@ -24,7 +24,7 @@
 }
 
 .btn{
-    background-color: #f96f2e;
+    background-color: #45767c;
     color: #fff;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border-radius: 5px;

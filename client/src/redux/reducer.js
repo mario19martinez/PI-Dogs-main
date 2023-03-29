@@ -48,16 +48,17 @@ const rootReducer = (state = initialState, action) => {
                 if(a.name < b.name) return -1
                 return 0
             })
-            console.log(filterAbcDogs)
+            //console.log(filterAbcDogs)
             return {
                 ...state,
                 dogs: filterAbcDogs
             }
         case FILTER_CREATED_DOG:
-            const allDogs = state.allDogs
-            const filterCreated = action.payload === 'created' ? allDogs.filter(d => d.createdInDb)
+            
+            const allDogs02 = state.allDogs
+            const filterCreated = action.payload === 'created' ? allDogs02.filter(d => d.createdInDb)
             :
-            allDogs.filter(d => !d.createdInDb)
+            allDogs02.filter(d => !d.createdInDb)
             return {
                 ...state,
                 dogs: action.payload === 'all' ? state.allDogs : filterCreated
@@ -102,10 +103,11 @@ const rootReducer = (state = initialState, action) => {
         //     }
         //   }
         case FILTER_BY_TEMPERAMENT:
-            const allDogs2 = state.allDogs
-            const filteredTemperament = action.payload === 'all' ? allDogs : allDogs2.filter(e => {
-                return e.temperaments.includes(action.payload)
-            })
+            const allDogs2 = [...state.allDogs];
+            const filteredTemperament = action.payload === 'All Temperaments' ? allDogs2 
+            : allDogs2.filter(e => e.temperament?.includes(action.payload)
+            )
+            console.log(filteredTemperament)
             return {
                 ...state,
                 dogs: filteredTemperament

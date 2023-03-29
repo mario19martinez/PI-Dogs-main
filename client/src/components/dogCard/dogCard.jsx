@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from '../dogCard/dogCard.module.css'
 
-export default function Card({ id, name, image, temperament, weight, height}){
+export default function Card({ id, name, image, temperament, weight, height, life_span}){
     return(
         <div className={styles.card}>
             <div className="cardImg" >
@@ -18,6 +18,7 @@ export default function Card({ id, name, image, temperament, weight, height}){
                 <h2>{temperament}</h2>
                 <h2>Peso: {weight}</h2>
                 <h2>Altura: {height}</h2>
+                <h2>Edad: {life_span}</h2>
             </div>
         </div>
     )

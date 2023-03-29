@@ -9,10 +9,10 @@ const router = Router();
 
 router.post('/dogs', async (req, res) => {
   try {
-    // Get the data from the request body
+    // Obtener los datos del cuerpo de la solicitud
     const { name, image, height, weight, life_span, temperament } = req.body;
 
-    // Create the new dog breed in the database
+    // Crear nuevo perro en la base de datos.
     const newDog = await Dog.create({
       name,
       image,
@@ -21,23 +21,23 @@ router.post('/dogs', async (req, res) => {
       life_span,
     });
 
-    // Find the temperaments associated with the dog
+    // Encuentra los temperamentos asociados con el perro.
     const temperamentsFound = await Temperaments.findAll({
       where: { name: temperament },
     });
 
-    // Associate the temperaments with the new dog breed
+    // Asociar los temperamentos con el nuevo perro
     await newDog.addTemperaments(temperamentsFound);
 
-    // Find the new dog breed by id
+    // Encuentra el nuevo perro por id
     const createdDog = await Dog.findByPk(newDog.id, {
       include: { model: Temperaments },
     });
 
-    // Send the created dog breed as a response
+    // Envia el perro creado como respuesta
     res.status(201).json(createdDog);
   } catch (error) {
-    console.error(error);
+    //console.error(error);
     res.status(500).send('Server Error');
   }
 });

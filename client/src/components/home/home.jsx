@@ -51,7 +51,7 @@ const Home = () => {
                         </div>
                     )
                 }) :
-                <div> <h1> Cargando...</h1> </div>
+                <><div className={styles.cargar}> <h1> Cargando...</h1> </div><div className={styles.loader}></div></>
                 }
             </div>
         </div>

@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import { getTemperaments, postDog } from "../../redux/actions";
 import validate from "./validate";
 import styles from '../createDog/createDog.module.css'
+import axios from "axios";
 
 
 
@@ -12,7 +13,7 @@ import styles from '../createDog/createDog.module.css'
 const CreateDog = () => {
 
     const dispatch = useDispatch();
-    const temperaments = useSelector((state) => state.temperaments);
+    const temperaments = useSelector((state) => state.temperaments); //estado global
     console.log(temperaments);
     const dogs = useSelector((state) => state.allDogs);
   
@@ -20,7 +21,8 @@ const CreateDog = () => {
     const [errors, setErrors] = useState({
       name: "",
       height: "",
-      weight: "",
+      weightMin: "",
+      weightMax: "",
       life_span: "",
       image: "",
       temperament: [],
@@ -29,7 +31,8 @@ const CreateDog = () => {
     const [input, setInput] = useState({
       name: "",
       height: "",
-      weight: "",
+      weightMin: "",
+      weightMax: "",
       life_span: "",
       image: "",
       temperament: [],
@@ -52,7 +55,6 @@ const CreateDog = () => {
             ...input,
             [e.target.name]: e.target.value,
           },
-          dogs
         )
       );
     };
@@ -67,14 +69,22 @@ const CreateDog = () => {
       });
     }
   
-    const handlerSubmit = (e) => {
+    const handlerSubmit = async (e) => {
       e.preventDefault();
-      console.log(input);
-      dispatch(postDog(input));
+        await axios.post('http://localhost:3001/dogs', {
+          name: input.name,
+          image: input.image,
+          weight: input.weightMin + ' - ' + input.weightMax,
+          height: input.height,
+          life_span: input.life_span,
+          temperament: input.temperament,
+        });
+      //dispatch(postDog(input));
       alert("Raza creada con éxito! Se te redirigirá al inicio...");
       setInput({
         name: "",
-        weight: "",
+        weightMin: "0",
+        weightMax: "0",
         height: "",
         life_span: "",
         image: "",
@@ -95,7 +105,7 @@ const CreateDog = () => {
         <div className={styles.container}>
           <div>
             <Link to="/home">
-              <button className={styles.cta}>← Back</button>
+              <button className={styles.back}>← Back</button>
             </Link>
           </div>
           <div className={styles.divProd}>
@@ -108,32 +118,44 @@ const CreateDog = () => {
                     type="text"
                     name="name"
                     value={input.name}
+                    placeholder={"Choose a name"}
                     onChange={(e) => handlerChange(e)}
                   ></input>
                   {errors.name && <p className={styles.errors}>{errors.name}</p>}
                   <br />
-                  <label>Average Height (cm): </label>
+                  <label>Height (cm): </label>
                   <input
-                    type="number"
+                    type="text"
                     value={input.height}
                     name="height"
+                    placeholder={"For example: 25 - 45"}
                     onChange={(e) => handlerChange(e)}
-                    disabled={!input.name || errors.name}
                   ></input>
-                  {errors.height && !errors.name && (
+                  {errors.height && (
                     <p className={styles.errors}>{errors.height}</p>
                   )}
                   <br />
-                  <label>Average Weight (kg): </label>
+                  <label>Weight (kg): </label>
+                  <br />
+                  <label>Min: </label>
                   <input
-                    type="number"
-                    value={input.weight}
-                    name="weight"
+                    type="text"
+                    value={input.weightMin}
+                    name="weightMin"
                     onChange={(e) => handlerChange(e)}
-                    disabled={!input.name || errors.height}
                   ></input>
-                  {errors.weight && !errors.height && (
-                    <p className={styles.errors}>{errors.weight}</p>
+                  {errors.weightMin && (
+                    <p className={styles.errors}>{errors.weightMin}</p>
+                  )}
+                  <br />
+                  <label>Max: </label>
+                  <input
+                    type="text"
+                    value={input.weightMax}
+                    name="weightMax"
+                    onChange={(e) => handlerChange(e)}></input>
+                    {errors.weightMax && (
+                    <p className={styles.errors}>{errors.weightMax}</p>
                   )}
                   <br />
                   <label>Years of Life: </label>
@@ -142,9 +164,8 @@ const CreateDog = () => {
                     value={input.life_span}
                     name="life_span"
                     onChange={(e) => handlerChange(e)}
-                    disabled={!input.name || errors.weight}
                   ></input>
-                  {errors.life_span && !errors.weight && (
+                  {errors.life_span && (
                     <p className={styles.errors}>{errors.life_span}</p>
                   )}
                   <br />
@@ -154,10 +175,10 @@ const CreateDog = () => {
                     value={input.image}
                     name="image"
                     alt="for sell"
+                    placeholder={"Add an image"}
                     onChange={(e) => handlerChange(e)}
-                    disabled={!input.name || errors.weight}
                   ></input>
-                  {errors.image && !errors.weight && (
+                  {errors.image && !errors.image && (
                     <p className={styles.errors}>{errors.image}</p>
                   )}
                   <br />

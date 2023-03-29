@@ -1,55 +1,48 @@
 .back_image{
-    background-image: url('https://c4.wallpaperflare.com/wallpaper/893/629/214/dogs-samoyed-dog-pet-hd-wallpaper-preview.jpg');    
+    background-image: url('https://mundocachorro.com/wp-content/uploads/2011/12/perro-jugando.jpg');    
+    /*display: flex;*/
+    flex-direction: column;
+    position: fixed;
+    height: 100%;
+    width: 100%;
     background-size: cover;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+    background-position: center;
+    background-repeat: no-repeat;
+  
 }
 
 .divStyle{
-    margin-top: 10%;
-    opacity:  90%;
-    background-color:#d3c7ca;
-    border-radius: 18% 19% 32% 0% / 10% 12% 27% 10%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 200px;
+    height: 70vh;
+    width: 90vh;
+    align-self: center;
+    backdrop-filter: blur(2.5px); 
 }
 
-
+.LandingPage {
+    color: red;
+  }
 
 .boton {
-    /* margin-top: 10px;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  outline: 2px solid #038c73;
-  padding: 10px 30px;
-  color: #0d0d0d;
-  position: relative;
-  overflow: hidden;
-  transition: color 1s;
-  border-radius: 10px; */
-    background: linear-gradient(to bottom, #E5989B 5%, #fcd68d 100%);
-    background-color: #fcd68d;
-    border: 2px solid #5E412F;
-    display: inline-block;
-    cursor: pointer;
-    color: #333333;
-    font-family: Arial;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px 24px;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px #FFCDB2;
-    border-radius: 15px
+    margin-top: 20vh;
+    border-radius: 15px;
+    font-size: 6vh;
+    background-size: contain;
+    font-weight: 200;
+    transition: 0.5s;
+    color: rgb(70, 4, 4);
+    border: 2px solid black;
+    text-shadow: 1px 1px 4px black;
+    box-shadow: 0px 0px 25px 19px rgba(4, 4, 0, 0.364);  
 }
 
 .boton:hover {
-    background: linear-gradient(to bottom, #E5989B 5%, rgba(151, 100, 102, 0.603) 100%);
-    background-color: #E5989B;
+    cursor: pointer;
+    transform: scale(120%);
+    color: darkred;
+    transition: 0.5s;
 }
 
 .boton:active {
@@ -61,10 +54,21 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     position: absolute;
     bottom: 0;
-  width: center;
-  height: 40px;
+  width: 10px;
+  height: 10px;
 }
 .texto{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    bottom: 0;
+    font-size: 5vh;
+    color: rgba(240, 194, 109, 0.946);
+    margin: 3vh;
+    text-shadow: 5px 2px 5px black;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    
+}
+.message{
+    font-size: 4vh;
+    color: rgba(240, 194, 109, 0.946);
+    margin: 3vh;
+    text-shadow: 5px 2px 5px black;
+    font-family: Georgia, "Times New Roman", Times, serif;
 }

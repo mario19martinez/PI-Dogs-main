@@ -8,7 +8,7 @@ export const FILTER_BY_TEMPERAMENT = 'FILTER_BY_TEMPERAMENT'
 export const FILTER_ABC = 'FILTER_ABC'
 export const FILTER_CREATED_DOG = 'FILTER_CREATED_DOG'
 export const FILTER_BY_WEIGHT = 'FILTER_BY_WEIGHT'
-export const FILTER_BY_TEMPERAMENTS = 'FILTER_BY_TEMPERAMENT'
+//export const FILTER_BY_TEMPERAMENTS = 'FILTER_BY_TEMPERAMENT'
 export const POST_DOG = 'POST_DOG'
 export const CLEAR_DETAIL = 'CLEAR_DETAIL'
 export const LOADING_PAGE = 'LOADING_PAGE'
@@ -28,7 +28,7 @@ export const getAllDogs = () => {
 export const postDog = (payload) => {
     return async function() {
         let json = await axios.post('http://localhost:3001/dogs', payload)
-        console.log(json)
+        //console.log(json)
         return json;
     }
 }
@@ -57,14 +57,14 @@ export const getDogName = (name) => {
         }
     }
 }
-export const filterByTemperaments =  (payload) => {
+export const filterByTemperaments =  (temperament) => {
     return {
         type: FILTER_BY_TEMPERAMENT,
-        payload
+        payload: temperament
     }
 }
 export const filterAbc = (payload) => {
-    console.log(payload)
+    //console.log(payload)
     return {
         type: FILTER_ABC,
         payload
