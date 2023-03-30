@@ -71,7 +71,17 @@ const CreateDog = () => {
   
     const handlerSubmit = async (e) => {
       e.preventDefault();
-        await axios.post('http://localhost:3001/dogs', {
+        // await axios.post('http://localhost:3001/dogs', {
+        //   name: input.name,
+        //   image: input.image,
+        //   weight: input.weightMin + ' - ' + input.weightMax,
+        //   height: input.height,
+        //   life_span: input.life_span,
+        //   temperament: input.temperament,
+        // });
+      if(!errors.name && !errors.height && !errors.weightMin && !errors.weightMax && input.temperament.length){
+      //dispatch(postDog(input));
+       await axios.post('http://localhost:3001/dogs', {
           name: input.name,
           image: input.image,
           weight: input.weightMin + ' - ' + input.weightMax,
@@ -79,7 +89,6 @@ const CreateDog = () => {
           life_span: input.life_span,
           temperament: input.temperament,
         });
-      //dispatch(postDog(input));
       alert("Raza creada con éxito! Se te redirigirá al inicio...");
       setInput({
         name: "",
@@ -91,6 +100,9 @@ const CreateDog = () => {
         temperament: [],
       });
       history.push("/home"); //me manda al home
+    }else {
+      return alert('falta informacion')
+    }
     };
   
     // const handleDelete = (e) => {
@@ -118,6 +130,7 @@ const CreateDog = () => {
                     type="text"
                     name="name"
                     value={input.name}
+                    className ={errors.name && 'warning'}
                     placeholder={"Choose a name"}
                     onChange={(e) => handlerChange(e)}
                   ></input>
@@ -125,10 +138,11 @@ const CreateDog = () => {
                   <br />
                   <label>Height (cm): </label>
                   <input
-                    type="text"
+                    type="number"
                     value={input.height}
                     name="height"
-                    placeholder={"For example: 25 - 45"}
+                    className ={errors.height && 'warning'}
+                    placeholder={"For example: 45"}
                     onChange={(e) => handlerChange(e)}
                   ></input>
                   {errors.height && (
@@ -139,7 +153,7 @@ const CreateDog = () => {
                   <br />
                   <label>Min: </label>
                   <input
-                    type="text"
+                    type="number"
                     value={input.weightMin}
                     name="weightMin"
                     onChange={(e) => handlerChange(e)}
@@ -150,7 +164,7 @@ const CreateDog = () => {
                   <br />
                   <label>Max: </label>
                   <input
-                    type="text"
+                    type="number"
                     value={input.weightMax}
                     name="weightMax"
                     onChange={(e) => handlerChange(e)}></input>
@@ -160,7 +174,7 @@ const CreateDog = () => {
                   <br />
                   <label>Years of Life: </label>
                   <input
-                    type="text"
+                    type="number"
                     value={input.life_span}
                     name="life_span"
                     onChange={(e) => handlerChange(e)}
@@ -174,8 +188,7 @@ const CreateDog = () => {
                     type="text"
                     value={input.image}
                     name="image"
-                    alt="for sell"
-                    placeholder={"Add an image"}
+                    placeholder={"Add URL"}
                     onChange={(e) => handlerChange(e)}
                   ></input>
                   {errors.image && !errors.image && (
