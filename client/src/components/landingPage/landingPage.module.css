@@ -26,16 +26,16 @@
   }
 
 .boton {
-    margin-top: 20vh;
-    border-radius: 15px;
-    font-size: 6vh;
-    background-size: contain;
-    font-weight: 200;
-    transition: 0.5s;
-    color: rgb(70, 4, 4);
-    border: 2px solid black;
-    text-shadow: 1px 1px 4px black;
-    box-shadow: 0px 0px 25px 19px rgba(4, 4, 0, 0.364);  
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    outline: 2px solid #038c73;
+    padding: 20px 60px;
+    color: #0d0d0d;
+    position: relative;
+    overflow: hidden;
+    transition: color 1s;
+    border-radius: 10px; 
 }
 
 .boton:hover {
@@ -59,16 +59,16 @@
 }
 .texto{
     font-size: 5vh;
-    color: rgba(240, 194, 109, 0.946);
+    color: rgba(7, 5, 2, 0.946);
     margin: 3vh;
-    text-shadow: 5px 2px 5px black;
+    text-shadow: 5px 2px 5px rgb(250, 228, 228);
     font-family: Georgia, "Times New Roman", Times, serif;
     
 }
 .message{
     font-size: 4vh;
-    color: rgba(240, 194, 109, 0.946);
+    color: rgba(2, 1, 1, 0.946);
     margin: 3vh;
-    text-shadow: 5px 2px 5px black;
+    text-shadow: 5px 2px 5px rgb(253, 214, 214);
     font-family: Georgia, "Times New Roman", Times, serif;
 }

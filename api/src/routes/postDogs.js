@@ -38,7 +38,7 @@ router.post('/dogs', async (req, res) => {
     res.status(201).json(createdDog);
   } catch (error) {
     //console.error(error);
-    res.status(500).send('Server Error');
+    res.status(404).send({error: error.message});
   }
 });
 

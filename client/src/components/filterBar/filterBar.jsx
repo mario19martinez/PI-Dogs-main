@@ -10,7 +10,9 @@ const FilterBar = ({setCurrentPage, setOrder}) => {
 
     const temperamentName = useSelector(state => { return state.temperaments })
 
-    const handleClick = (e) => {
+    const handleClick = (e) => { //la función handleClick se utiliza para cargar
+        //todos los perros disponibles y para restablecer el número de
+        //página a 1 en una aplicación React que utiliza Redux.
         e.preventDefault();
         dispatch(getAllDogs())
         setCurrentPage(1);
@@ -85,8 +87,8 @@ const FilterBar = ({setCurrentPage, setOrder}) => {
             <h3>Por peso</h3>
             <select className={styles.selectStyle} onChange={e => handleWeightFilter(e)}>
                 <option key={1} value="all">All</option>
-                <option key={2} value="min">Ligero a pesado</option>
-                <option key={3} value="max">Pesado a ligero</option>
+                <option key={2} value="min">Max a Min</option>
+                <option key={3} value="max">Min a Max</option>
             </select>
             </div>
 

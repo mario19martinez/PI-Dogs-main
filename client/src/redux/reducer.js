@@ -54,28 +54,46 @@ const rootReducer = (state = initialState, action) => {
                 dogs: filterAbcDogs
             }
         case FILTER_CREATED_DOG:
-            
-            const allDogs02 = state.allDogs
-            const filterCreated = action.payload === 'created' ? allDogs02.filter(d => d.createdInDb)
-            :
-            allDogs02.filter(d => !d.createdInDb)
+            const createdFilter = action.payload === 'created' ? state.allDogs.filter(dog => dog.createInDb) 
+            : state.allDogs.filter(dog => !dog.createInDb)
             return {
                 ...state,
-                dogs: action.payload === 'all' ? state.allDogs : filterCreated
+                dogs: createdFilter
             }
+
+            // //const allDogs02 = state.allDogs
+            // const filterCreated = action.payload === 'created' ? state.allDogs.filter(d => d.createdInDb)
+            // :
+            // state.allDogs.filter(d => !d.createdInDb)
+            // return {
+            //     ...state,
+            //     dogs: filterCreated
+            // }
         case FILTER_BY_WEIGHT:
-            const allDogsP = state.allDogs.filter(d => d.weight)
-            console.log(action.payload, 'soy el PAYLOAD')
-            const filterWeight = action.payload === 'min' ? allDogsP.sort((a, b) => {
-                return a.weight - b.weight
-            }) :
-            allDogsP.sort((a, b) => {
-                return a.weight - b.weight
-            }).reverse()
-            return {
-                ...state,
-                dogs: filterWeight
-            }
+            let sortByWeight =
+            action.payload === "max"
+                ? state.dogs.sort(function (a, b) {
+                    if (Number(a.weight.split(' ')[0]) > Number(b.weight.split(' ')[0])) {
+                        return 1;
+                    }
+                    if (Number(b.weight.split(' ')[0]) >Number(a.weight.split(' ')[0])) {
+                        return -1;
+                    }
+                    return 0;
+                })
+                : state.dogs.sort(function (a, b) {
+                    if (Number(a.weight.split(' ')[0]) > Number(b.weight.split(' ')[0])) {
+                        return -1;
+                    }
+                    if (Number(b.weight.split(' ')[0]) > Number(a.weight.split(' ')[0])) {
+                        return 1;
+                    }
+                    return 0;
+                });
+        return {
+            ...state,
+            dogs: sortByWeight,
+        };
         case GET_ALL_TEMPERAMENTS:
             return {
                 ...state,

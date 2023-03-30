@@ -208,10 +208,10 @@ const CreateDog = () => {
                   ))}
   
                   <button
-                    type="create"
+                    type="submit"
                     className={styles.crear}
                     disabled={
-                      !input.name || errors.name || errors.height || errors.weight
+                      !input.name || errors.name || errors.height || errors.weightMin || errors.weightMax
                     }
                   >
                     Crear raza!
