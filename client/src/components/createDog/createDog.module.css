@@ -26,12 +26,13 @@
   height: 550px;
 }
 .form{
-  padding: 7rem;
+  padding: 10rem;
   border: 2px solid black;
   width: 50%;
   border-radius: 20px;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  background-color: #b6cdbf;
   /* background-color: rgba(150, 150, 150, 0.5);
   border: 1px solid #ccc; */
   /* border-radius: 5px;
@@ -165,6 +166,7 @@
   color: #000000;
   background: rgb(255, 185, 111);
   opacity: 0.7;
+  cursor: pointer;
 }
 /* .btn:hover {
   transform: translateY(-1px);

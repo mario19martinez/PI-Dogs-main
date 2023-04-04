@@ -20,7 +20,8 @@ const CreateDog = () => {
     const history = useHistory();
     const [errors, setErrors] = useState({
       name: "",
-      height: "",
+      heightMin: "",
+      heightMax: "",
       weightMin: "",
       weightMax: "",
       life_span: "",
@@ -30,7 +31,8 @@ const CreateDog = () => {
   
     const [input, setInput] = useState({
       name: "",
-      height: "",
+      heightMin: "",
+      heightMax: "",
       weightMin: "",
       weightMax: "",
       life_span: "",
@@ -85,7 +87,7 @@ const CreateDog = () => {
           name: input.name,
           image: input.image,
           weight: input.weightMin + ' - ' + input.weightMax,
-          height: input.height,
+          height: input.heightMin + ' - ' + input.heightMax,
           life_span: input.life_span,
           temperament: input.temperament,
         });
@@ -137,25 +139,46 @@ const CreateDog = () => {
                   {errors.name && <p className={styles.errors}>{errors.name}</p>}
                   <br />
                   <label>Height (cm): </label>
+                  <br />
+                  <label>Min: </label>
                   <input
+                    type="number"
+                    value={input.heightMin}
+                    name="heightMin"
+                    className ={errors.heightMin && 'warning'}
+                    onChange={(e) => handlerChange(e)}
+                  ></input>
+                  {/* <input
                     type="number"
                     value={input.height}
                     name="height"
                     className ={errors.height && 'warning'}
                     placeholder={"For example: 45"}
                     onChange={(e) => handlerChange(e)}
-                  ></input>
-                  {errors.height && (
-                    <p className={styles.errors}>{errors.height}</p>
+                  ></input> */}
+                  {errors.heightMin && (
+                    <p className={styles.errors}>{errors.heightMin}</p>
                   )}
                   <br />
-                  <label>Weight (kg): </label>
+                  <label>Max: </label>
+                  <input
+                    type="number"
+                    value={input.heightMax}
+                    name="heightMax"
+                    className ={errors.heightMax && 'warning'}
+                    onChange={(e) => handlerChange(e)}></input>
+                    {errors.heightMax && (
+                    <p className={styles.errors}>{errors.heightMax}</p>
+                  )}
+                  <br />
+                  <label>Weight (kg):</label>
                   <br />
                   <label>Min: </label>
                   <input
                     type="number"
                     value={input.weightMin}
                     name="weightMin"
+                    className ={errors.weightMin && 'warning'}
                     onChange={(e) => handlerChange(e)}
                   ></input>
                   {errors.weightMin && (
@@ -167,6 +190,7 @@ const CreateDog = () => {
                     type="number"
                     value={input.weightMax}
                     name="weightMax"
+                    className ={errors.weightMax && 'warning'}
                     onChange={(e) => handlerChange(e)}></input>
                     {errors.weightMax && (
                     <p className={styles.errors}>{errors.weightMax}</p>
@@ -220,11 +244,11 @@ const CreateDog = () => {
                     </div>
                   ))}
   
-                  <button
+                  <button 
                     type="submit"
                     className={styles.crear}
                     disabled={
-                      !input.name || errors.name || errors.height || errors.weightMin || errors.weightMax
+                      !input.name || errors.name || errors.heightMin || errors.heightMax || errors.weightMin || errors.weightMax
                     }
                   >
                     Crear raza!

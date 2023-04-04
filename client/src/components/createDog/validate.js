@@ -26,10 +26,24 @@ let validate = (input) => {
       errors.weightMax= "El peso máximo no puede ser inferior o igual al peso mínimo"
   }
 
-  if(!input.height){
-    if(input.height < 0) return errors.height = 'debes poner una altura valida'
-      errors.height= "Por favor elige una altura"
-  } 
+//   if(!input.height){
+//     if(input.height < 0) return errors.height = 'debes poner una altura valida'
+//       errors.height= "Por favor elige una altura"
+//   }
+
+if(!input.heightMin){
+    errors.heightMin= "Por favor elige una altura mínima"
+} else if (input.heightMin.trim() > 60 || input.heightMin.trim() < 1){
+    errors.heightMin= "La altura mínima no puede ser mayor a la altura maxima ni menor a 1" 
+}
+
+if(!input.heightMax){
+    errors.heightMax= "Por favor elige una altura máxima"
+} else if (input.heightMax.trim() > 61 || input.heightMax.trim() < 1){
+    errors.heightMax= "La altura máxima no puede ser superior a 100 ni inferior a la altura minima" 
+} else if (input.heightMin >= input.heightMax){
+    errors.heightMax= "La altura máxima no puede ser inferior o igual a la altura mínima"
+}
 
   if(!input.life_span){
       errors.life_span= "Elija una vida útil aproximada"
