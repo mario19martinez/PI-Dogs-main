@@ -67,14 +67,15 @@
     font-family: Georgia, "Times New Roman", Times, serif;
     resize: both;
     overflow: auto;
-    border: 10px solid;
+    border: 5px solid;
+    border-color: #038c73;
     background-color: aliceblue;
     
 }
 .message{
     font-size: 4vh;
     color: rgba(2, 1, 1, 0.946);
-    margin: 3vh;
+    margin: 4vh;
     text-shadow: 5px 2px 5px rgb(253, 214, 214);
     font-family: Georgia, "Times New Roman", Times, serif;
 }

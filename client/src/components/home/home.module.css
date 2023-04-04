@@ -1,14 +1,14 @@
 .background{
     background-image: url('https://st2.depositphotos.com/1106005/7970/i/600/depositphotos_79704128-stock-photo-blue-dog-paw-prints-tile.jpg');
     background-size: cover;
-    height: 1300px;
+    height: 1200px;
 }
 .container{
     margin-top: 0.6%;
     margin-left: 4%;
     margin-right: 4%;
     display: flex;
-    height: 1000px;
+    height: 900px;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
