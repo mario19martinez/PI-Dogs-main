@@ -185,7 +185,7 @@ const CreateDog = () => {
                   <br />
                   <label>Image: </label>
                   <input
-                    type="text"
+                    type="url"
                     value={input.image}
                     name="image"
                     placeholder={"Add URL"}

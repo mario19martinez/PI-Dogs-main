@@ -2,7 +2,7 @@
     margin-top: 1%;
     padding: 0;
     display: flex;
-    background-color: #45767c;
+    background: linear-gradient(-160.5deg, #45767c, #ff9100);
     opacity: 90%;
     border: 4px inset #0F0F0F;
         border-radius: 9px 27px 18px 11px;

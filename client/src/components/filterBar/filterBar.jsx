@@ -58,17 +58,23 @@ const FilterBar = ({setCurrentPage, setOrder}) => {
 
             <div>
             <h3>Dogs</h3>
-            <select className={styles.selectStyle} onChange={e => handleFilterCreated(e)}>
-                <option key={1} value="all">All</option>
-                <option key={2} value="created">Dogs Created</option>
-                <option key={3} value="api">Dogs of Api</option>
+            <select className={styles.temperamentStyle} onChange={e => handleFilterCreated(e)}>
+                <option key={1} value="all">All </option>
+                <option key={2} value="created">Dogs Created </option>
+                <option key={3} value="api">Dogs of Api </option>
             </select>
+            {/* <select className={styles.selectStyle} onChange={e => handleFilterCreated(e)}>
+                <option key={1} value="all">All </option>
+                <option key={2} value="created">Dogs Created </option>
+                <option key={3} value="api">Dogs of Api </option>
+            </select> */}
             </div>
 
             <div>
             <h3>Temperamentos</h3>
-            <select className={styles.selectStyle} onChange={handleTempFilter} >
-                <option value="All Temperaments"  key="All Temperaments"></option>
+            <select className={styles.temperamentStyle} onChange={handleTempFilter} >
+                <option key={1} value='all Temperaments'>All </option>
+                <option value="All Temperaments" key="all Temperaments"></option>
                 {temperamentName?.map((el, index) => (
                     <option value={el.name} key={index}>{el.name}</option>
                 ))}
@@ -85,7 +91,7 @@ const FilterBar = ({setCurrentPage, setOrder}) => {
 
             <div>
             <h3>Por peso</h3>
-            <select className={styles.selectStyle} onChange={e => handleWeightFilter(e)}>
+            <select className={styles.temperamentStyle} onChange={e => handleWeightFilter(e)}>
                 <option key={1} value="all">All</option>
                 <option key={2} value="min">Max a Min</option>
                 <option key={3} value="max">Min a Max</option>

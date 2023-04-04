@@ -20,12 +20,22 @@ const Home = () => {
     const pagedDogs = allDogs.slice(firstI, lastI)
 
     const[order, setOrder] = useState(' ');
+
     const paginated = (pageN) => {
         setCurrentPage(pageN)
     }
     useEffect(() => {
         dispatch(getAllDogs())
     }, [dispatch])
+
+    useEffect(() => {
+        const data = window.localStorage.getItem('pagedDogs');
+        setCurrentPage(JSON.parse(data));
+    }, []);
+
+    useEffect(() => {
+        window.localStorage.setItem('pagedDogs', JSON.stringify(currentPage));
+    }, [currentPage]);
 
 
     useEffect(() => {
@@ -39,14 +49,17 @@ const Home = () => {
 
         <FilterBar setCurrentPage={setCurrentPage} setOrder={setOrder} />
 
-        <Paginated setCurrentPage={setCurrentPage} currentPage={currentPage} currentDogs={currentDogs} allDogs={allDogs.length} paginated={paginated} />
+        <Paginated setCurrentPage={setCurrentPage} currentPage={currentPage}
+        currentDogs={currentDogs} allDogs={allDogs.length} paginated={paginated} />
 
             <div className={styles.container}>
                 { pagedDogs.length? 
                 pagedDogs.map(e => {
                     return(
                         <div key={e.id+'div'}>
-                            <Card name={e.name} image={ e.image} temperament={!e.createdInDb ? e.temperament : e.Temperaments.map(d => d.name + " ")} id={e.id} height={e.height} weight={e.weight} key={e.id} />
+                            <Card name={e.name} image={ e.image}
+                            temperament={!e.createdInDb ? e.temperament : e.Temperaments.map(d => d.name + " ")}
+                            id={e.id} height={e.height} weight={e.weight} key={e.id} />
 
                         </div>
                     )

@@ -1,6 +1,7 @@
 .back_image{
-    background-image: url('https://mundocachorro.com/wp-content/uploads/2011/12/perro-jugando.jpg');    
+    /* background-image: url('https://mundocachorro.com/wp-content/uploads/2011/12/perro-jugando.jpg');     */
     /*display: flex;*/
+    background-image: url('https://www.mascotahogar.com/Imagenes/wallpaper-de-perro-terrier.jpg');
     flex-direction: column;
     position: fixed;
     height: 100%;
@@ -58,11 +59,16 @@
   height: 10px;
 }
 .texto{
-    font-size: 5vh;
+    font-size: 4vh;
+    border-radius: 20px 100px 10px;
     color: rgba(7, 5, 2, 0.946);
-    margin: 3vh;
+    margin: 0vh;
     text-shadow: 5px 2px 5px rgb(250, 228, 228);
     font-family: Georgia, "Times New Roman", Times, serif;
+    resize: both;
+    overflow: auto;
+    border: 10px solid;
+    background-color: aliceblue;
     
 }
 .message{
