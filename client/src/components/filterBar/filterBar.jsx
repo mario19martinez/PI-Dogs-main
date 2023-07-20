@@ -6,7 +6,8 @@ import styles from '../filterBar/filterBar.module.css';
 
 const FilterBar = ({setCurrentPage, setOrder}) => {
     const dispatch = useDispatch();
-    //const [selectTemp, setSelectTemp] = useState("");
+    // const [allDogs, setAllDogs] = useState('');
+    // const [selectTemp, setSelectTemp] = useState("");
 
     const temperamentName = useSelector(state => { return state.temperaments })
 
@@ -46,6 +47,7 @@ const FilterBar = ({setCurrentPage, setOrder}) => {
         dispatch(filterByTemperaments(e.target.value))
         setCurrentPage(1)
     }
+    //const filteredDogs = allDogs.filter((dog) => dog.temperaments === selectTemp)
     return(
         <div className={styles.main_bar}>
             <div>
@@ -72,11 +74,11 @@ const FilterBar = ({setCurrentPage, setOrder}) => {
 
             <div>
             <h3>Temperamentos</h3>
-            <select className={styles.temperamentStyle} onChange={handleTempFilter} >
-                <option key={1} value='all Temperaments'>All </option>
-                <option value="All Temperaments" key="all Temperaments"></option>
-                {temperamentName?.map((el, index) => (
-                    <option value={el.name} key={index}>{el.name}</option>
+            <select className={styles.temperamentStyle} onChange={e => handleTempFilter(e)} >
+                <option key={1} value='All Temperaments'>All </option>
+                <option value="All Temperaments" key="All Temperaments"></option>
+                {temperamentName && temperamentName?.map((el) => (
+                    <option value={el.name} key={el.id}>{el.name}</option>
                 ))}
                 
                 {/* {

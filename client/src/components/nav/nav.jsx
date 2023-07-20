@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
@@ -9,6 +9,7 @@ import styles from '../nav/nav.module.css'
 const Nav = ({setCurrentPage}) => {
 
     const dispatch = useDispatch();
+    const [errors, setErrors] = useState(null)
 
     const handleDogs = () => {
         dispatch(getAllDogs()
@@ -18,7 +19,14 @@ const Nav = ({setCurrentPage}) => {
 
     useEffect(() => {
         dispatch(getAllDogs())
-    }, [dispatch])
+        .then(() => {
+            setErrors(null);
+        })
+        .catch((err) => {
+            console.log(err);
+            setErrors('No se pudieron obtener todos los perros. Intente nuevamente mas tarde.')
+        });
+    }, [dispatch]);
 
     return(
         <div className={styles.navStyle}>
@@ -31,6 +39,7 @@ const Nav = ({setCurrentPage}) => {
             <h1> <Link to="/dogs"> Crear Perro </Link> </h1>
         <SearchBar />
         </nav>
+        {errors && <p className="error">{errors}</p>}
         </div>
     )
 }

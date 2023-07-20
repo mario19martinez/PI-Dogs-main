@@ -32,7 +32,7 @@ const tempsHandler = async () => {
 //     //res.status(400).json('error')
 //     return tempArray;
     
-// };
+// }
 
 module.exports = {
     tempsHandler

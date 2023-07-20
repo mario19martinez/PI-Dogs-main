@@ -14,7 +14,7 @@ export default function Paginated({currentDogs, allDogs, paginated}) {
             {pages?.map((number) =>
                 (
                     <li key={number} className={styles.list}>
-                    <button key={number} onClick={() => paginated(number)}>{number}</button>
+                    <button className={styles.boton} key={number} onClick={() => paginated(number)}>{number}</button>
                     </li>
                 )
             )}

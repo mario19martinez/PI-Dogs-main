@@ -35,7 +35,7 @@
 
 
 .navStyle {
-    background: #252323;
+    background: #cce2d6;
     font-family: "Montserrat", sans-serif;
     display: flex;
     justify-content: center;
@@ -52,7 +52,7 @@
 
 .navMenu a {
     justify-content: space-around;
-    color: #f6f4e6;
+    color: #070707;
     text-decoration: none;
     font-size: 1.2em;
     text-transform: uppercase;
@@ -104,4 +104,8 @@
 
 .liStlye {
     display: inline-block;
+}
+
+.error {
+    color: #f6f4e6;
 }

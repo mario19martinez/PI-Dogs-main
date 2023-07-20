@@ -25,8 +25,10 @@ export default function SearchBar() {
     return(
         <div>
             <form>
-                <input className={styles.inputStyle} onChange={(e) => handleInputChange(e) } value={name} placeholder="Buscar Perro"/>
-                <button className={styles.searchBtn} onClick={e =>  handleSubmit(e)} type="submit">Buscar Perro</button>
+                <input className={styles.inputStyle} onChange={(e) => handleInputChange(e) } 
+                value={name} placeholder="Buscar Perro"/>
+                <button className={styles.searchBtn} onClick={(e) =>  handleSubmit(e)} 
+                type="submit">Buscar Perro</button>
             </form>
         </div>
     )
