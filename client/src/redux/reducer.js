@@ -60,15 +60,6 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 dogs: createdFilter
             }
-
-            // //const allDogs02 = state.allDogs
-            // const filterCreated = action.payload === 'created' ? state.allDogs.filter(d => d.createdInDb)
-            // :
-            // state.allDogs.filter(d => !d.createdInDb)
-            // return {
-            //     ...state,
-            //     dogs: filterCreated
-            // }
         case FILTER_BY_WEIGHT:
             let sortByWeight =
             action.payload === "max"
@@ -99,37 +90,25 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 temperaments: action.payload
             }
-        //     case FILTER_BY_TEMPERAMENT:
-        //   if(action.payload !== undefined){
-        //     const filtered = state.allDogs.filter((e) => e.temperament?.includes(action.payload.charAt(0).toUpperCase() + action.payload.slice(1)))
-        //     let arr = []
-        //       state.created.forEach(e => {
-        //       e.temperaments.forEach(el => {
-        //         if(el.name.includes(action.payload.charAt(0).toUpperCase() + action.payload.slice(1))){
-        //           arr.push(e)}
-        //         });
-        //       })
-        //     const all = filtered.concat(arr)
-        //     return{
-        //       ...state,
-        //       dogs: all
-        //     }
-        //   }else{
-        //     return{
-        //       ...state,
-        //       breeds: state.allBreeds
-        //     }
-        //   }
         case FILTER_BY_TEMPERAMENT:
+            const { payload } = action;
             const allDogs2 = [...state.allDogs];
-            const filteredTemperament = action.payload === 'All Temperaments' ? allDogs2 
-            : allDogs2.filter(e => e.temperament?.includes(action.payload)
-            )
-            console.log(filteredTemperament)
-            return {
+            // Validacion  del payload (opcional)
+            if(typeof payload !== 'string'){
+                console.error('Payload debe ser una cadena de texto valida');
+                return state;
+            }
+             // Filntrado de perros por temperamento
+             const filteredTemperament = payload === 'All Temperaments'
+                ? allDogs2
+                : allDogs2.filter(e => e.temperament?.some(temp => temp.includes(payload.trim())));
+
+             console.log(filteredTemperament);
+
+             return {
                 ...state,
                 dogs: filteredTemperament
-            }
+             };
         case CLEAR_DETAIL: {
             return {
                 ...state,

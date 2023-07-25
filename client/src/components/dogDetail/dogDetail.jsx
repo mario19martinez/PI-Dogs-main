@@ -28,7 +28,7 @@ const DogDetail = () => {
             </Link>
             {Object.keys(dog).length ?
             <div className={styles.general}>
-                <img src={dog.image ? dog.image : dog.image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWuj7_Yp_STbTtvooO1tCTmQBj1CkT7a62tZ21Pv3bW_5AgQzU7BZPeGcv2ijxj-IkO5w&usqp=CAU"} alt="woof" width="500" height="500" />
+                <img src={dog.image ? dog.image : dog.image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWuj7_Yp_STbTtvooO1tCTmQBj1CkT7a62tZ21Pv3bW_5AgQzU7BZPeGcv2ijxj-IkO5w&usqp=CAU"} alt="woof" width="500" height="480" />
             <div className={styles.dogdetail}>
 
             <h1>Nombre de la raza: {dog.name}</h1>

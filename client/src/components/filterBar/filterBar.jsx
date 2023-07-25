@@ -42,7 +42,7 @@ const FilterBar = ({setCurrentPage, setOrder}) => {
     }, [dispatch])
 
     const handleTempFilter = (e) => {
-        console.log(handleTempFilter)
+        console.log("Soy el console.log", handleTempFilter)
         e.preventDefault()
         dispatch(filterByTemperaments(e.target.value))
         setCurrentPage(1)
@@ -76,7 +76,7 @@ const FilterBar = ({setCurrentPage, setOrder}) => {
             <h3>Temperamentos</h3>
             <select className={styles.temperamentStyle} onChange={e => handleTempFilter(e)} >
                 <option key={1} value='All Temperaments'>All </option>
-                <option value="All Temperaments" key="All Temperaments"></option>
+                {/* <option value="All Temperaments" key="All Temperaments"></option> */}
                 {temperamentName && temperamentName?.map((el) => (
                     <option value={el.name} key={el.id}>{el.name}</option>
                 ))}
