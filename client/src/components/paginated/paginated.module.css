@@ -10,12 +10,13 @@
 
 
 .list {
-    display: inline-flex;
+    display: inline-block;
+    margin-right: 5px;
     
 }
 .list > button {
     box-shadow: inset 0px 0px 0px 0px #27ee81;
-    background: linear-gradient(to bottom, #0f0f0f 5%, #d1ded3 100%);
+    background-color: rgba(39, 39, 37, 0.5);
     /* background-color: #29445d; */
     border-radius: 10px;
     /* border: 1px solid #d83526; */
@@ -33,7 +34,7 @@
 
 .list > button:hover {
     background: linear-gradient(to bottom, #9cbfac 5%, #9cbfac 100%);
-    background-color: #9cbfac;
+    background-color: #ffffff;
 }
 
 .list > button:active {
@@ -44,4 +45,10 @@
     background-color: #a6f55d;
     color: #a6f55d;
     border-radius: 15px;
+}
+
+.active {
+    background-color: #27ee81;
+    color: #d1ded3;
+    border-color: #fbff00;
 }
